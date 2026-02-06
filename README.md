@@ -1,15 +1,11 @@
----
-
 ## ⚙️ Technologies Used
 
 - **Node.js** – backend runtime environment  
 - **Express.js** – REST API framework  
 - **MongoDB** – NoSQL database  
 - **MongoDB Compass** – database visualization and testing  
-- **HTML / CSS / JavaScript** – frontend  
+- **JavaScript** – frontend  
 - **GitHub** – version control and project hosting  
-
----
 
 ## 🗄 Database Design
 
@@ -20,8 +16,6 @@ Main collections include:
 - `listingsAndReviews` – Airbnb listings with prices, location, amenities, and reviews  
 
 Indexes are applied to frequently queried fields (such as price, location, and ratings) to improve query performance.
-
----
 
 ## 🔗 Backend & REST API
 
@@ -34,8 +28,6 @@ Main features:
 - Pagination support for large datasets  
 - Proper database connection handling  
 
----
-
 ## 🌐 Frontend
 
 The frontend provides a simple web interface that allows users to:
@@ -44,8 +36,6 @@ The frontend provides a simple web interface that allows users to:
 - Analyze pricing and review statistics  
 
 The frontend communicates with the backend via REST API endpoints.
-
----
 
 ## 📊 Bonus Features Implemented
 
