@@ -1,10 +1,9 @@
 ## ⚙️ Technologies Used
 
-- **Node.js** – backend runtime environment  
-- **Express.js** – REST API framework  
+- **Node.js, Express.js** – backend 
 - **MongoDB** – NoSQL database  
 - **MongoDB Compass** – database visualization and testing  
-- **JavaScript** – frontend  
+- **JavaScript, CSS, HTML** – frontend  
 - **GitHub** – version control and project hosting  
 
 ## 🗄 Database Design
