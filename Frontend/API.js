@@ -1,15 +1,74 @@
-import axios from 'axios';
+const API_URL = "http://localhost:3000/api/listings";
 
-const API = axios.create({ baseURL: 'http://localhost:5000/api' });
+async function getListings() {
+  const response = await fetch(API_URL);
+  return response.json();
+}
 
-API.interceptors.request.use((req) => {
-    if (localStorage.getItem('profile')) {
-        req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('profile')).token}`;
-    }
-    return req;
-});
+async function getListingById(id) {
+  const response = await fetch(`${API_URL}/${id}`);
+  return response.json();
+}
 
-export const fetchListings = () => API.get('/listings');
-export const fetchListingDetails = (id) => API.get(`/listings/${id}`);
-export const createOrder = (orderData) => API.post('/orders', orderData);
-export const getAnalytics = () => API.get('/analytics/stats');
+async function addListing(data) {
+  return fetch(`${API_URL}/add`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  });
+}
+
+async function deleteListing(id) {
+  return fetch(`${API_URL}/${id}`, {
+    method: "DELETE"
+  });
+} 
+
+async function getListings() {
+  try {
+    const response = await fetch(API_URL);
+    if (!response.ok) throw new Error("Failed to fetch listings");
+    return await response.json();
+  } catch (err) {
+    console.error(err);
+    return [];
+  }
+}
+
+async function getListingById(id) {
+  try {
+    const response = await fetch(`${API_URL}/${id}`);
+    if (!response.ok) throw new Error("Failed to fetch listing by ID");
+    return await response.json();
+  } catch (err) {
+    console.error(err);
+    return null;
+  }
+}
+
+async function addListing(data) {
+  try {
+    const response = await fetch(`${API_URL}/add`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+    if (!response.ok) throw new Error("Failed to add listing");
+    return await response.json();
+  } catch (err) {
+    console.error(err);
+    return null;
+  }
+}
+
+async function deleteListing(id) {
+  try {
+    const response = await fetch(`${API_URL}/${id}`, { method: "DELETE" });
+    if (!response.ok) throw new Error("Failed to delete listing");
+    return await response.json();
+  } catch (err) {
+    console.error(err);
+    return null;
+  }
+}
+
