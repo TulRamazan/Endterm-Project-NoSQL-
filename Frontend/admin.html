@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Airbnb Analytics - Admin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <button onclick="window.location.href='index.html'" class="back-btn">← Back to Site</button>
+        <h1>Admin Panel</h1>
+    </header>
+
+    <main class="container">
+        <section class="admin-section">
+            <h2>Add New Listing</h2>
+            <form id="addForm">
+                <input type="text" id="name" placeholder="Property Name" required>
+                <input type="text" id="amenities" placeholder="Amenities (comma separated: WiFi, Pool)" required>
+                <button type="submit" class="admin-btn add">Add Listing</button>
+            </form>
+        </section>
+
+        <hr>
+
+        <section class="admin-section">
+            <h2>Delete Listing</h2>
+            <div class="delete-box">
+                <input type="text" id="deleteId" placeholder="Enter Listing ID">
+                <button onclick="removeListing()" class="admin-btn delete">Delete by ID</button>
+            </div>
+        </section>
+
+        <hr>
+
+        <h2>All Listings</h2>
+        <div id="admin-listings"></div>
+    </main>
+
+    <script src="admin.js"></script>
+</body>
+</html>
